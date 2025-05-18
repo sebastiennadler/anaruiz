@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+<head><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<title>Couleurs en nudité (2007)</title>
+<link href="css/style.css" rel="stylesheet"/>
+<style>
+body {
+  background-color: #0b1a33;
+  background-size: cover;
+  font-family: sans-serif;
+  margin: 0;
+  padding-top: 60px;
+  color: white;
+}
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.9);
+  padding: 10px;
+  text-align: center;
+  z-index: 1000;
+}
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+.expo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
+.expo figure {
+  width: 280px;
+  text-align: center;
+}
+.expo img {
+  max-width: 100%;
+  border-radius: 8px;
+  cursor: zoom-in;
+}
+.expo figcaption {
+  margin-top: 8px;
+  font-size: 1.1em;
+  font-style: italic;
+}
+</style>
+</head>
+<body>
+<nav>
+<a href="index.html">Accueil</a>
+<a href="galeries.html">Galeries</a>
+<a href="diaporama.html">Diaporama</a>
+<a href="contact.html">Contact</a>
+<a href="apropos.html">À Propos</a>
+<a href="mentions-legales.html">Mentions légales</a></nav>
+<h2 style="text-align:center;margin-top:80px;">Couleurs en nudité (2007)</h2>
+<div class="expo">
+<figure><img alt="Nudite Couverture" src="img/nudite-couverture.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Nudite Couverture</figcaption></figure>
+<figure><img alt="Eaux Rouges" src="img/eaux-rouges.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Eaux Rouges</figcaption></figure>
+<figure><img alt="Au Bord Du Visible" src="img/au-bord-du-visible.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Au Bord Du Visible</figcaption></figure>
+<figure><img alt="Chaleur Dafrique" src="img/chaleur-dafrique.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Chaleur Dafrique</figcaption></figure>
+<figure><img alt="Force Tranquille" src="img/force-tranquille.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Force Tranquille</figcaption></figure>
+<figure><img alt="Entre Lafrique Et Leurope" src="img/entre-lafrique-et-leurope.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Entre Lafrique Et Leurope</figcaption></figure>
+<figure><img alt="Sur La Terre" src="img/sur-la-terre.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Sur La Terre</figcaption></figure>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const imgs = document.querySelectorAll('.expo img');
+  imgs.forEach(img => {
+    img.addEventListener('click', () => {
+      const overlay = document.createElement('div');
+      overlay.style.position = 'fixed';
+      overlay.style.top = '60px';
+      overlay.style.left = 0;
+      overlay.style.width = '100%';
+      overlay.style.height = 'calc(100% - 60px)';
+      overlay.style.background = 'rgba(0,0,0,0.9)';
+      overlay.style.display = 'flex';
+      overlay.style.justifyContent = 'center';
+      overlay.style.alignItems = 'center';
+      overlay.style.zIndex = 10000;
+
+      const fullImg = document.createElement('img');
+      fullImg.src = img.src;
+      fullImg.style.maxWidth = '95%';
+      fullImg.style.maxHeight = '95%';
+      fullImg.style.borderRadius = '10px';
+      fullImg.style.boxShadow = '0 0 20px rgba(255,255,255,0.5)';
+      overlay.appendChild(fullImg);
+
+      overlay.addEventListener('click', () => document.body.removeChild(overlay));
+      document.body.appendChild(overlay);
+    });
+  });
+});
+</script>
+</body></html>

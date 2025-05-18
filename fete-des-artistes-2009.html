@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+<head><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<title>Fête des artistes (2009)</title>
+<link href="css/style.css" rel="stylesheet"/>
+<style>
+body {
+  background-color: #0b1a33;
+  background-size: cover;
+  font-family: sans-serif;
+  margin: 0;
+  padding-top: 60px;
+  color: white;
+}
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.9);
+  padding: 10px;
+  text-align: center;
+  z-index: 1000;
+}
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+.expo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
+.expo figure {
+  width: 280px;
+  text-align: center;
+}
+.expo img {
+  max-width: 100%;
+  border-radius: 8px;
+  cursor: zoom-in;
+}
+.expo figcaption {
+  margin-top: 8px;
+  font-size: 1.1em;
+  font-style: italic;
+}
+</style>
+</head>
+<body>
+<nav>
+<a href="index.html">Accueil</a>
+<a href="galeries.html">Galeries</a>
+<a href="diaporama.html">Diaporama</a>
+<a href="contact.html">Contact</a>
+<a href="apropos.html">À Propos</a>
+<a href="mentions-legales.html">Mentions légales</a></nav>
+<h2 style="text-align:center;margin-top:80px;">Fête des artistes (2009)</h2>
+<div class="expo">
+<figure><img alt="Fda 2009 Couverture" src="img/fda-2009-couverture.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Fda 2009 Couverture</figcaption></figure>
+<figure><img alt="Andaloucia 1" src="img/andaloucia-1.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Andaloucia 1</figcaption></figure>
+<figure><img alt="Andaloucia 2" src="img/andaloucia-2.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Andaloucia 2</figcaption></figure>
+<figure><img alt="Andaloucia 3" src="img/andaloucia-3.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Andaloucia 3</figcaption></figure>
+<figure><img alt="Naples" src="img/naples.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Naples</figcaption></figure>
+<figure><img alt="Guizeh" src="img/guizeh.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Guizeh</figcaption></figure>
+<figure><img alt="Llanes" src="img/llanes.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Llanes</figcaption></figure>
+<figure><img alt="Athenes" src="img/athenes.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Athenes</figcaption></figure>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const imgs = document.querySelectorAll('.expo img');
+  imgs.forEach(img => {
+    img.addEventListener('click', () => {
+      const overlay = document.createElement('div');
+      overlay.style.position = 'fixed';
+      overlay.style.top = '60px';
+      overlay.style.left = 0;
+      overlay.style.width = '100%';
+      overlay.style.height = 'calc(100% - 60px)';
+      overlay.style.background = 'rgba(0,0,0,0.9)';
+      overlay.style.display = 'flex';
+      overlay.style.justifyContent = 'center';
+      overlay.style.alignItems = 'center';
+      overlay.style.zIndex = 10000;
+
+      const fullImg = document.createElement('img');
+      fullImg.src = img.src;
+      fullImg.style.maxWidth = '95%';
+      fullImg.style.maxHeight = '95%';
+      fullImg.style.borderRadius = '10px';
+      fullImg.style.boxShadow = '0 0 20px rgba(255,255,255,0.5)';
+      overlay.appendChild(fullImg);
+
+      overlay.addEventListener('click', () => document.body.removeChild(overlay));
+      document.body.appendChild(overlay);
+    });
+  });
+});
+</script>
+</body></html>

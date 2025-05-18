@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+<head><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<title>Sur le sentier du dragonnier (2008)</title>
+<link href="css/style.css" rel="stylesheet"/>
+<style>
+body {
+  background-color: #0b1a33;
+  background-size: cover;
+  font-family: sans-serif;
+  margin: 0;
+  padding-top: 60px;
+  color: white;
+}
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.9);
+  padding: 10px;
+  text-align: center;
+  z-index: 1000;
+}
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+.expo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
+.expo figure {
+  width: 280px;
+  text-align: center;
+}
+.expo img {
+  max-width: 100%;
+  border-radius: 8px;
+  cursor: zoom-in;
+}
+.expo figcaption {
+  margin-top: 8px;
+  font-size: 1.1em;
+  font-style: italic;
+}
+</style>
+</head>
+<body>
+<nav>
+<a href="index.html">Accueil</a>
+<a href="galeries.html">Galeries</a>
+<a href="diaporama.html">Diaporama</a>
+<a href="contact.html">Contact</a>
+<a href="apropos.html">À Propos</a>
+<a href="mentions-legales.html">Mentions légales</a></nav>
+<h2 style="text-align:center;margin-top:80px;">Sur le sentier du dragonnier (2008)</h2>
+<div class="expo">
+<figure><img alt="Dragonnier Couverture" src="img/dragonnier-couverture.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Dragonnier Couverture</figcaption></figure>
+<figure><img alt="Le Vieux Dragonnier" src="img/le-vieux-dragonnier.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Le Vieux Dragonnier</figcaption></figure>
+<figure><img alt="Le Vieux Volcan" src="img/le-vieux-volcan.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Le Vieux Volcan</figcaption></figure>
+<figure><img alt="Au Dessous Du Volcan" src="img/au-dessous-du-volcan.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Au Dessous Du Volcan</figcaption></figure>
+<figure><img alt="Sable Noir" src="img/sable-noir.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Sable Noir</figcaption></figure>
+<figure><img alt="Annapurna" src="img/annapurna.jpg" style="display:block;visibility:visible;margin:auto;max-width:100%;"/><figcaption>Annapurna</figcaption></figure>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const imgs = document.querySelectorAll('.expo img');
+  imgs.forEach(img => {
+    img.addEventListener('click', () => {
+      const overlay = document.createElement('div');
+      overlay.style.position = 'fixed';
+      overlay.style.top = '60px';
+      overlay.style.left = 0;
+      overlay.style.width = '100%';
+      overlay.style.height = 'calc(100% - 60px)';
+      overlay.style.background = 'rgba(0,0,0,0.9)';
+      overlay.style.display = 'flex';
+      overlay.style.justifyContent = 'center';
+      overlay.style.alignItems = 'center';
+      overlay.style.zIndex = 10000;
+
+      const fullImg = document.createElement('img');
+      fullImg.src = img.src;
+      fullImg.style.maxWidth = '95%';
+      fullImg.style.maxHeight = '95%';
+      fullImg.style.borderRadius = '10px';
+      fullImg.style.boxShadow = '0 0 20px rgba(255,255,255,0.5)';
+      overlay.appendChild(fullImg);
+
+      overlay.addEventListener('click', () => document.body.removeChild(overlay));
+      document.body.appendChild(overlay);
+    });
+  });
+});
+</script>
+</body></html>

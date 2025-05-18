@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+<head><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<title>Galeries - Ana Ruiz</title>
+<link href="css/style.css" rel="stylesheet"/>
+<style>
+body {
+  background-color: #0b1a33;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+}
+h1 {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 2.5em;
+  color: white;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 40px;
+}
+.gallery-item {
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.gallery-item:hover {
+  transform: scale(1.03);
+}
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.gallery-item h2 {
+  margin: 15px 0;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #111;
+}
+.gallery-item a {
+  text-decoration: none;
+  color: inherit;
+}
+</style>
+</head>
+<body>
+<nav>
+<a href="index.html">Accueil</a>
+<a href="galeries.html">Galeries</a>
+<a href="diaporama.html">Diaporama</a>
+<a href="contact.html">Contact</a>
+<a href="apropos.html">À Propos</a>
+<a href="mentions-legales.html">Mentions légales</a></nav>
+<h1>Galeries</h1>
+<div class="gallery-grid">
+<a class="gallery-item" href="la-maison-ou-le-pouvoir-de-rentrer-en-soi-meme-2012.html">
+<img alt="La maison ou le pouvoir de rentrer en soi-même (2012)" src="img/maison-temple.jpg"/>
+<h2>La maison ou le pouvoir de rentrer en soi-même (2012)</h2>
+</a>
+<a class="gallery-item" href="fete-des-artistes-2009.html">
+<img alt="Fête des artistes (2009)" src="img/fda-2009-couverture.jpg"/>
+<h2>Fête des artistes (2009)</h2>
+</a>
+<a class="gallery-item" href="couleurs-en-nudite-2007.html">
+<img alt="Couleurs en nudité (2007)" src="img/nudite-couverture.jpg"/>
+<h2>Couleurs en nudité (2007)</h2>
+</a>
+<a class="gallery-item" href="sur-le-sentier-du-dragonnier-2008.html">
+<img alt="Sur le sentier du dragonnier (2008)" src="img/dragonnier-couverture.jpg"/>
+<h2>Sur le sentier du dragonnier (2008)</h2>
+</a>
+</div></body>
+</html>

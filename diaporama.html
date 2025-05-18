@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+<head><meta charset="utf-8"/><title>Diaporama Ana Ruiz</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/></head><body>
+<div style="position: fixed; top: 20px; left: 20px; z-index: 9999;">
+<a href="index.html" id="btn-retour-diapo" style="text-decoration: none;">
+<button style="padding: 8px 12px; font-size: 13px; background-color: #fff; color: #000; border: none; border-radius: 5px; cursor: pointer; opacity: 0.85;">
+                ⬅ Accueil
+            </button>
+</a>
+</div>
+<div class="slideshow-container">
+<div class="slide active"><img src="img/accueil.jpg"/></div><div class="slide"><img src="img/andaloucia-1.jpg"/></div><div class="slide"><img src="img/andaloucia-2.jpg"/></div><div class="slide"><img src="img/andaloucia-3.jpg"/></div><div class="slide"><img src="img/annapurna.jpg"/></div><div class="slide"><img src="img/athenes.jpg"/></div><div class="slide"><img src="img/au-bord-du-visible.jpg"/></div><div class="slide"><img src="img/au-dessous-du-volcan.jpg"/></div><div class="slide"><img src="img/chaleur-dafrique.jpg"/></div><div class="slide"><img src="img/dragonnier-couverture.jpg"/></div><div class="slide"><img src="img/eaux-rouges.jpg"/></div><div class="slide"><img src="img/entre-lafrique-et-leurope.jpg"/></div><div class="slide"><img src="img/fda-2009-couverture.jpg"/></div><div class="slide"><img src="img/force-tranquille.jpg"/></div><div class="slide"><img src="img/guizeh.jpg"/></div><div class="slide"><img src="img/le-vieux-dragonnier.jpg"/></div><div class="slide"><img src="img/le-vieux-volcan.jpg"/></div><div class="slide"><img src="img/llanes.jpg"/></div><div class="slide"><img src="img/maison-chrysalide.jpg"/></div><div class="slide"><img src="img/maison-de-thyphee.jpg"/></div><div class="slide"><img src="img/maison-floride.jpg"/></div><div class="slide"><img src="img/maison-palais-prison.jpg"/></div><div class="slide"><img src="img/maison-paradis-perdu.jpg"/></div><div class="slide"><img src="img/maison-sacree.jpg"/></div><div class="slide"><img src="img/maison-temple.jpg"/></div><div class="slide"><img src="img/naples.jpg"/></div><div class="slide"><img src="img/nudite-couverture.jpg"/></div><div class="slide"><img src="img/sable-noir.jpg"/></div><div class="slide"><img src="img/sur-la-terre.jpg"/></div>
+</div>
+<style>
+body {
+  margin: 0;
+  background: black;
+}
+.slideshow-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.slide.active {
+  display: block;
+}
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: black;
+}
+#audio-popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+}
+#audio-popup button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+}
+</style>
+<audio id="bg-music" loop="">
+<source src="audio/morning-coffee-333081.mp3" type="audio/mpeg"/>
+</audio>
+<div style="position:fixed;bottom:20px;right:20px;z-index:9999;">
+<button id="sound-btn">🎵 Activer le son</button>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const slides = Array.from(document.getElementsByClassName("slide"));
+  const btn = document.getElementById("sound-btn");
+  const audio = document.getElementById("bg-music");
+
+  let currentIndex = -1;
+
+  function showRandomSlide() {
+    slides.forEach(s => s.classList.remove("active"));
+    let nextIndex;
+    do {
+      nextIndex = Math.floor(Math.random() * slides.length);
+    } while (nextIndex === currentIndex);
+    currentIndex = nextIndex;
+    slides[currentIndex].classList.add("active");
+    setTimeout(showRandomSlide, 2500);
+  }
+
+  if (btn) {
+    btn.onclick = function () {
+      audio.volume = 0.3;
+      try {
+        audio.play();
+        btn.style.display = "none";
+        console.log("🎵 Musique lancée.");
+      } catch (e) {
+        alert("Impossible d'activer le son. Vérifiez les permissions du navigateur.");
+        console.warn("Audio error:", e);
+      }
+    };
+  }
+
+  showRandomSlide();
+});
+</script>
+</body></html>
